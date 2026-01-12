@@ -1,14 +1,7 @@
-Done. Below is the **updated README content** with **`server.js` fully replaced by `index.js`**, written cleanly so recruiters immediately see correctness and attention to detail.
-
-You can **replace the relevant sections** or paste the **full README** if needed.
-
----
 
 # ⚡ Flux App Backend — Production-Grade REST API
 
-A **scalable and production-ready backend service** built with **Node.js and Express.js** that powers the **Flux web application** — a **YouTube-inspired content platform** with **watch history tracking** and **tweet-style social posting**.
-
----
+A **scalable and production-ready backend service** built with **Node.js and Express.js** that powers the **Flux web application** — a **YouTube-inspired content platform** with **watch history tracking** and **tweet-style social posting.
 
 ## 🌐 What is Flux Web App?
 
