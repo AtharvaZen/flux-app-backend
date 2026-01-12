@@ -195,7 +195,3 @@ This project demonstrates:
 * **Production-grade API architecture**
 * **Scalable and maintainable code design**
 
-It reflects how **real backend systems are engineered in professional environments**.
-
----
-
