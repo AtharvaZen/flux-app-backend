@@ -365,7 +365,7 @@ const getUserChannelProfile = ayncHandler(async (req, res) => {
           $size: "$subscribers"        // $ cause its a filed 
         },
         channelSubscribedTo:{
-          $size: "subscribedTo"
+          $size: "$subscribedTo"
         },
         isSubscribed:{
           $cond:{
@@ -451,6 +451,33 @@ const getWatchHistory = ayncHandler(async(req, res) =>{
 })
 
 
+const deleteUser = ayncHandler(async (req, res) => {
+  const userId = req.user?._id;
+
+  if (!userId) {
+    throw new ApiError(401, "unauthorized request");
+  }
+
+  const deletedUser = await User.findByIdAndDelete(userId);
+
+  if (!deletedUser) {
+    throw new ApiError(404, "user not found");
+  }
+
+  const options = {
+    httpOnly: true,
+    // secure: true
+  };
+
+  return res
+    .status(200)
+    .clearCookie("accessToken", options)
+    .clearCookie("refreshToken", options)
+    .json(new ApiResponse(200, {}, "user deleted successfully"));
+});
+
+
+
 
 
 export {
@@ -465,5 +492,6 @@ export {
   updateUserAvatar, 
   updateCoverImage,
   getUserChannelProfile,
-  getWatchHistory
+  getWatchHistory,
+  deleteUser
 };
